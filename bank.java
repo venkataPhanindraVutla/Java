@@ -2,15 +2,21 @@ class bankAcc{
     String name ;
     final int minBalance = 2000;
     int balance = 0 ;
-    String accNum ;
-    public bankAcc(int balance){
-        this.balance = balance;
+    String accNum;
+    public bankAcc(String accnum,String name){
+        this.name = name;
+        this.accNum = accnum;
     }
-    private checkMinBalance(int amount){
-        return balance - amount<= minBalance ? false :  true;
+    /**
+     * returns the balance
+     * @param amount
+     * @return
+     */
+    private boolean checkMinBalance(int amount){
+        return balance - amount <= minBalance ? false :  true;
     }
     public int getBalance(){
-        retrun balance;
+        return balance;
     }
     public void deposit(int amount){
         balance += amount;
@@ -24,6 +30,8 @@ class bankAcc{
 }
 public class bank{
     public static void main(String args[]){
-        bankAcc ob = new bankAcc();
+        bankAcc ob = new bankAcc("Bdvl200026","Phani");
+        ob.deposit(100000000);
+        System.out.println(ob.getBalance());
     }
 }
